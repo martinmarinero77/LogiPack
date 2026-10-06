@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'css/estilos.css')}}">
+    <title>Elegir Sucursal</title>
+</head>
+<body>
+    <div id="container9"><br>
+        <img src="{{ url_for('static', filename='img/cerrar.png') }}" alt=""><br>
+        <h1>Error. {{ error }}</h2>
+        <br>
+        <a href="{{ url_for('Inicio') }}" ><button class="btn btn-secondary"><h3>Volver a Inicio</h3></button></a>
+        <br><br>
+    </div>
+    </body>
+</body>

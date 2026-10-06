@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'css/estilos.css')}}">
+    <title>Elegir Sucursal</title>
+</head>
+<body>
+    <div id="container8"><br>
+    <img src="{{ url_for('static', filename='img/cheque.png') }}" alt=""><br>
+    <h1>Llegada Registrado con Exito</h1>
+    <br>
+    {% for transporte in transportes %}
+    <ul class="list-group list-group-horizontal">
+        <li class="list-group-item"><h6>Identificador del Transporte: {{transporte.id}}</h6></li>
+        <li class="list-group-item"><h6>Id de la Sucursal:: {{transporte.idSucursal}}</h6></li>
+        <li class="list-group-item"><h6>Fecha de Salida: {{transporte.fechaHoraSalida}}</h6></li>
+        <li class="list-group-item"><h6>Fecha de llegada: {{transporte.fechaHoraLlegada}}</h6></li>
+    </ul><br>
+    {% endfor %}
+   <br>
+    <a href="{{ url_for('Volver_Funcio', sucursal_id=sucursal.id) }}"><button class="btn btn-secondary"><h3>Volver a Funcionalidades</h3></button></a>
+<br><br>    
+</div>
+    </body>

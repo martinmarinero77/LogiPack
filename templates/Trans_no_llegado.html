@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'css/estilos.css')}}">
+    <title>Elegir Sucursal</title>
+</head>
+<body>
+    <br>
+    <a id="btnI" href="{{ url_for('Inicio') }}">Volver a Inicio</a>
+    <a id="btnI" href="{{ url_for('Elegir_Sucursal') }}">Elegir Otra Sucursal</a>
+    <div id="container7">
+    <br><h1>Transpotes sin llegar</h1><br>
+    <ul class="list-group list-group-horizontal">
+        <li class="list-group-item"><h6>Identificador de la Sucursal: {{sucursal.id}}</h6></li>
+        <li class="list-group-item"><h6>Número: {{sucursal.numero}}</h6></li>
+        <li class="list-group-item"><h6>Provincia: {{sucursal.provincia}}</h6></li>
+        <li class="list-group-item"><h6>Localidad: {{sucursal.localidad}}</h6></li>
+    </ul><br>
+    <h3>Selecciones uno o más Transportes</h3>
+    <form action="{{ url_for('Llegada_Registrada', sucursal_id=sucursal.id) }}" method="post">
+        <div >
+            {% for transporte in transportes %}
+            <input class="form-check-input" name="trans_seleccionados[]" type="checkbox" value="{{ transporte.id }}" id="transportes">
+            <label class="form-check-label" for="transportes">
+                <h5>Número del Transporte: {{ transporte.numeroTransporte }} - Fecha de Salida:{{ transporte.fechaHoraSalida }}</h5>
+            </label><br>
+            {% endfor %}
+            <button  class="btn btn-secondary btn-lg" type="submit">Registrar Llegada</button>
+            <br><br>
+        </div>
+    </form>
+</div>
+</body>
